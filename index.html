@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ORBIT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>ORBIT</h1>
+
+        <nav id="planetNavigation">
+
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="selectedPlanet">SUN</h2>
+
+        <div id="planetDisplay">
+            <img id="planetImage" class="sun-image" src="assets/sun.png" alt="The Sun">
+        </div>
+    </main>
+
+    <dialog id="atmosphereDialog">
+        <h3 id="atmosphereTitle">Atmosphere</h3>
+
+        <p id="atmosphereText">
+            Explore the gases that make up this planet's atmosphere.
+        </p>
+
+        <div id="pieReveal">
+            <div id="atmospherePie"></div>
+        </div>
+
+        <div id="atmosphereLegend"></div>
+        
+        <div id="atmosphereInfo"></div>
+
+        <button id="closeAtmosphere">Close</button>
+    </dialog>
+
+    <dialog id="gravityDialog">
+        <h3 id="gravityTitle">Gravity</h3>
+
+        <p>Explore how gravity affects falling objects.</p>
+
+        <div id="gravitySimulation">
+            <div id="gravityBall"></div>
+            <div id="gravityGround"></div>
+        </div>
+
+        <p id="gravityInfo"></p>
+
+        <div id="gravityControls">
+            <button id="dropBall">Drop</button>
+            <button id="resetBall">Reset</button>
+        </div>
+        
+
+        <button id ="closeGravity">Close</button>
+    </dialog>
+
+    <footer>
+        <button id="atmosphereButton" class="featureButton">Atmosphere</button>
+        <button id="gravityButton" class="featureButton">Gravity</button>  
+        <button id="scaleButton" class="featureButton">Scale</button>
+    </footer>
+</body>
+</html>

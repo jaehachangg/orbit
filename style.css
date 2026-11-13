@@ -1,0 +1,539 @@
+body {
+    background-color: #05070b;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    position: relative;
+    isolation: isolate;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 200;
+    letter-spacing: 6px;
+}
+
+#selectedPlanet {
+    font-size: 42px;
+    font-weight: 200;
+    letter-spacing: 4px;
+    margin-bottom: 0px;
+}
+
+button {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 300;
+}
+
+.planet-button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: gray;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planet-button:hover {
+    transform: scale(1.2);
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.planet-label {
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.planet-item:hover .planet-label {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.planet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#planetNavigation {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    position: relative;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#planetNavigation::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: #404654;
+    top: 10px;
+    left: 10px;
+    right: 20px;
+}
+
+.sun-button {
+    background-color: #ffbf47;
+    box-shadow: 0 0 10px rgba(255, 191, 71, 0.5);
+}
+
+#planetImage.saturn-image {
+    --planet-scale: 1.3;
+}
+
+
+
+.planet-button.active {
+    background-color: #c5d8f5;
+    box-shadow: 0 0 14px rgba(163, 197, 255, 0.7);
+    transform: scale(1.2);
+}
+
+.sun-button.active {
+    background-color: #ffbf47;
+    box-shadow: 0 0 18px rgba(255, 191, 71, 0.85);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(1px 1px at 15% 20%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 75% 35%, #9aa5b8 99%, transparent),
+        radial-gradient(2px 2px at 40% 75%, #79869d 99%, transparent),
+        radial-gradient(1px 1px at 60% 81%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 25% 94%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 87% 15%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 95% 50%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 50% 50%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 10% 10%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 20% 30%, #a0a7b3 99%, transparent),
+        radial-gradient(1px 1px at 30% 45%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 70% 61%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 84% 70%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 96% 85%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 50% 20%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 66% 30%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 70% 42%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 86% 50%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 93% 62%, #7f8796 99%, transparent),
+        radial-gradient(1px 1px at 50% 70%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 60% 83%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 70% 92%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 88% 10%, #8c99b1 99%, transparent),
+        radial-gradient(1px 1px at 91% 20%, #cfdbee 99%, transparent),
+        radial-gradient(1px 1px at 50% 30%, #9aa5b8 99%, transparent),
+        radial-gradient(2px 2px at 67% 47%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 70% 50%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 82% 69%, #9aa5b8 99%, transparent),
+        radial-gradient(1px 1px at 97% 70%, #9aa5b8 99%, transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#planetImage {
+    margin-top: 0px;
+    width: min(650px, 85vw, 55vh);
+    height: min(650px, 85vw, 55vh);
+    object-fit: contain;
+    --planet-scale: 1;
+
+    transform: rotate(0deg) scale(var(--planet-scale));
+    opacity: 1;
+
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#planetImage.fade-out {
+    opacity: 0;
+    transform: rotate(1.5deg) scale(calc(var(--planet-scale) * 0.95));
+}
+
+#planetImage.fade-in-start {
+    opacity: 0;
+    transform: rotate(-1.5deg) scale(calc(var(--planet-scale) * 1.05));
+}
+
+#planetDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.featureButton {
+    background-color: #000000;
+    color: white;
+    border: 1px solid #2f2f2f;
+    border-radius: 999px;
+    width: 180px;
+    box-sizing: border-box;
+
+    padding: 18px 40px;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.featureButton:hover {
+    background-color: #bfbfbf;
+    color: black;
+    border-color: #bfbfbf;
+    transform: scale(1.05);
+}
+
+#planetImage.sun-image {
+    --planet-scale: 1.25;
+}
+
+#atmosphereDialog {
+    background-color: #0c1018;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+
+    border: 1px solid #444b49;
+    border-radius: 18px;
+
+    padding: 30px;
+    width: min(500px, 85vw);
+    box-sizing: border-box;
+}
+
+#atmosphereDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+}
+
+#atmosphereDialog h3 {
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+#closeAtmosphere {
+    margin-top: 30px;
+    background-color: #000000;
+    color: white;
+    border: 1px solid #2f2f2f;
+    border-radius: 999px;
+    width: 180px;
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+}
+
+#closeAtmosphere:hover {
+    background-color: #bfbfbf;
+    color: black;
+    border-color: #bfbfbf;
+    transform: scale(1.05);
+}
+
+.gas-row {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.gas-row p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.bar-background {
+    width: 100%;
+    height: 8px;
+    background-color: #263142;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #a9bfdc;
+    border-radius: 999px;
+
+    transition: width 1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+#atmospherePie {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0;
+
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 12px),
+        black calc(100% - 11px)
+    );
+
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 12px),
+        black calc(100% - 11px)
+    );
+}
+
+#pieReveal {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+
+    -webkit-mask: conic-gradient(
+        black 0% 0%,
+        transparent 0% 100%
+    );
+
+    mask: conic-gradient(
+        black 0% 0%,
+        transparent 0% 100%
+    );
+}
+
+#atmosphereInfo {
+    font-size: 20x;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+}
+
+#atmosphereLegend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin: 15px 0 25px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+#atmosphereDialog,
+#gravityDialog {
+    background-color: #0c1018;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    border: 1px solid #444b49;
+    border-radius: 18px;
+    padding: 30px;
+    width: min(500px, 85vw);
+    box-sizing: border-box;
+}
+
+#gravityDialog {
+    width: min(650px, 90vw);
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#atmosphereDialog::backdrop,
+#gravityDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+}
+
+#gravityDialog h3 {
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+#closeGravity {
+    margin-top: 30px;
+    background-color: #000000;
+    color: white;
+    border: 1px solid #2f2f2f;
+    border-radius: 999px;
+    width: 180px;
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+}
+
+#closeGravity:hover {
+    background-color: #bfbfbf;
+    color: black;
+    border-color: #bfbfbf;
+    transform: scale(1.05);
+}
+
+#gravitySimulation {
+    width: 100%;
+    height: 400px;
+    background-color: #060a11;
+    border: 1px solid #303b4c;
+    border-radius: 12px;
+
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#gravityBall {
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+
+    width: 26px;
+    height: 26px;
+    background-color: #c5d8f5;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gravityBall:active {
+    cursor: grabbing;
+}
+
+#gravityGround {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    
+    height: 2px;
+    background-color: #718096;
+}
+
+#resetBall,
+#dropBall {
+    background-color: #000000;
+    color: white;
+    border: 1px solid #2f2f2f;
+    border-radius: 999px;
+    width: 200px;
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+}
+
+#resetBall:hover,
+#dropBall:hover {
+    background-color: #bfbfbf;
+    color: black;
+    border-color: #bfbfbf;
+    transform: scale(1.05);
+}
+
+#gravityControls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 45px;
+}
+
+#gravityInfo {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 20px 0;
+}
