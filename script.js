@@ -12,7 +12,7 @@ const bodies = [
 
 const planetData = {
     SUN: {
-        image: "assets/sun.png",
+        image: "assets/sun.webp",
         gravity: 274.0,
         atmosphereNote: "The Sun has a plasma atmosphere composed primarily of hydrogen and helium. Its photosphere, chromosphere, and corona have different physical conditions."
     },
