@@ -94,6 +94,14 @@ const planetData = {
     }
 };
 
+const preloadedImages = [];
+
+for (const body of bodies) {
+    const image = new Image();
+    image.src = planetData[body].image;
+    preloadedImages.push(image);
+}
+
 const colors = [
     "#a9bfdc",
     "#6889b3",
