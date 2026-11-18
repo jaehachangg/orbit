@@ -262,14 +262,8 @@ footer {
     backdrop-filter: blur(5px);
 }
 
-#atmosphereDialog h3 {
-    font-size: 24px;
-    font-weight: 200;
-    letter-spacing: 2px;
-    margin-top: 0;
-}
-
-#closeAtmosphere {
+#closeAtmosphere,
+#closeScale {
     margin-top: 30px;
     background-color: #000000;
     color: white;
@@ -291,7 +285,8 @@ footer {
                 border-color 0.2s ease;
 }
 
-#closeAtmosphere:hover {
+#closeAtmosphere:hover,
+#closeScale:hover {
     background-color: #bfbfbf;
     color: black;
     border-color: #bfbfbf;
@@ -361,9 +356,10 @@ footer {
 }
 
 #atmosphereInfo {
-    font-size: 20x;
-    font-weight: 200;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
 #atmosphereLegend {
@@ -390,7 +386,8 @@ footer {
 }
 
 #atmosphereDialog,
-#gravityDialog {
+#gravityDialog,
+#scaleDialog {
     background-color: #0c1018;
     color: white;
     font-family: "Outfit", sans-serif;
@@ -408,13 +405,39 @@ footer {
     overflow-y: auto;
 }
 
+:is(#atmosphereDialog, #gravityDialog, #scaleDialog) {
+    scrollbar-width: thin;
+    scrollbar-color: #404654 #0c1018;
+}
+
+:is(#atmosphereDialog, #gravityDialog, #scaleDialog)::-webkit-scrollbar {
+    width: 8px;
+}
+
+:is(#atmosphereDialog, #gravityDialog, #scaleDialog)::-webkit-scrollbar-track {
+    background: #0c1018;
+}
+
+:is(#atmosphereDialog, #gravityDialog, #scaleDialog)::-webkit-scrollbar-thumb {
+    background: #404654;
+    border-radius: 10px;
+}
+
+#gravityDialog::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+
 #atmosphereDialog::backdrop,
-#gravityDialog::backdrop {
+#gravityDialog::backdrop,
+#scaleDialog::backdrop {
     background-color: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(5px);
 }
 
-#gravityDialog h3 {
+#atmosphereDialog h3,
+#gravityDialog h3,
+#scaleDialog h3 {
     font-size: 24px;
     font-weight: 200;
     letter-spacing: 2px;
@@ -536,4 +559,84 @@ footer {
     font-weight: 300;
     letter-spacing: 0.5px;
     margin: 20px 0;
+}
+
+#scaleDialog {
+    width: min(850px, 95vw);
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#scaleComparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+    width: 100%;
+    min-height: 300px;
+    padding: 30px 15px;
+
+    background-color: #060a11;
+    border: 1px solid #303b4c;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.scale-item {
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scale-item img {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.scale-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.scale-item p:last-child {
+    color: #aab8ca;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+#scaleRatio {
+    margin: 25px 0 5px;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+#gravityDisclaimer {
+    font-size: 13px;
+    font-weight: 300;
+    color: #9caabd;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 10px auto 25px;
+}
+
+#gravityExplanation {
+    font-size: 13px;
+    font-weight: 300;
+    color: #9caabd;
+    line-height: 1.6;
+    margin: 10px auto 20px;
+    max-width: 480px;
 }

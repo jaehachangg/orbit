@@ -49,6 +49,18 @@
 
         <p>Explore how gravity affects falling objects.</p>
 
+        <p id="gravityDisclaimer">
+            This simulation represents an idealized environment
+            without air resistance. Objects accelerate solely
+            under the selected celestial body's gravity.
+        </p>
+
+        <p id="gravityExplanation">
+            Gravity depends on an object's mass and the distance
+            from its center. Greater mass generally produces
+            stronger gravity, while greater distance reduces it.
+        </p>
+
         <div id="gravitySimulation">
             <div id="gravityBall"></div>
             <div id="gravityGround"></div>
@@ -63,6 +75,18 @@
         
 
         <button id ="closeGravity">Close</button>
+    </dialog>
+
+    <dialog id="scaleDialog">
+        <h3 id="scaleTitle">Scale</h3>
+
+        <p>Compare the sizes of celestial bodies with Earth.</p>
+
+        <div id="scaleComparison"></div>
+
+        <p id="scaleRatio"></p>
+
+        <button id="closeScale">Close</button>
     </dialog>
 
     <footer>
